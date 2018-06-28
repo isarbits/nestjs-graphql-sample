@@ -1,0 +1,17 @@
+type Author {
+  id: Int!
+  firstName: String
+  lastName: String
+  posts: [Post]
+}
+
+input AuthorSearchFilter {
+    id: Int
+    name:String
+}
+
+type Query {
+  author(id: Int!): Author
+  authors(limit:Int! offset:Int filter:AuthorSearchFilter): [Author!]!
+  ##posts(authorId:Int!): [Post]
+} 

@@ -1,0 +1,18 @@
+
+type Post {
+  id: Int!
+  title: String
+  votes: Int
+  author: Author
+}
+
+input PostSearchFilter {
+    id: Int
+    title:String
+}
+
+type Query {
+  post(id: Int!): Post
+  posts(limit:Int! offset:Int filter:PostSearchFilter): [Post!]!
+  ##posts(authorId:Int!): [Post]
+} 
